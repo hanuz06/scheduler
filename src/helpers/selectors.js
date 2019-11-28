@@ -41,3 +41,29 @@ export function  getInterview(state, interview) {
    
   return interviewObject? interviewObject : null;
 }
+
+
+export function getInterviewersByDay(state, day) {
+
+  const interviewersForDay=[]; 
+  const interviewersList=[];  
+  
+  state.days.forEach(stateByDay => {if(stateByDay.name === day ) { 
+    stateByDay.interviewers.forEach(i=>interviewersList.push(i))
+  }});
+ 
+  if (!interviewersList){
+    return interviewersForDay;
+  }
+
+  for (const i in state.interviewers){
+
+    interviewersList.forEach(app=>{        
+    if(app===Number(i)){
+      interviewersForDay.push(state.interviewers[i])
+    }
+  })
+  }  
+  console.log('888888888888888 ', interviewersForDay)
+  return interviewersForDay;
+}
