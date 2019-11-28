@@ -21,3 +21,8 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Running Storybook Visual Testbed
+```sh
+http://localhost:8001/api/debug/reset to reset DB
+```

@@ -64,6 +64,6 @@ export function getInterviewersByDay(state, day) {
     }
   })
   }  
-  console.log('888888888888888 ', interviewersForDay)
+  //console.log('888888888888888 ', interviewersForDay)
   return interviewersForDay;
 }
