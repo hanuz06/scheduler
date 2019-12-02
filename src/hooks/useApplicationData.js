@@ -105,7 +105,7 @@ export default function useApplicationData() {
 
     const daySpot = dayByAppId(id)
     
-    const spotIncrease = (daySpot) =>{      
+    const spotDecrease = (daySpot) =>{      
       const m = state.days.map((item, index)=>{
         if (index !== daySpot.id-1){
           return item;
@@ -118,7 +118,7 @@ export default function useApplicationData() {
       )
       return m;  
     }
-    const days = spotIncrease(daySpot)
+    const days = spotDecrease(daySpot)
 
     return axios.put(`/api/appointments/${id}`, {interview})
         .then(res=>
@@ -144,7 +144,7 @@ export default function useApplicationData() {
 
     const daySpot = dayByAppId(id)
 
-    const spotDecrease = (daySpot) =>{      
+    const spotIncrease = (daySpot) =>{      
       const m = state.days.map((item, index)=>{
         if (index !== daySpot.id-1){
           return item;
@@ -157,7 +157,7 @@ export default function useApplicationData() {
       )
       return m;  
     }
-    const days = spotDecrease(daySpot)
+    const days = spotIncrease(daySpot)
    
     return axios.delete(`/api/appointments/${id}`)
         .then(res=>
