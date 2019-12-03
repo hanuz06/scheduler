@@ -48,7 +48,7 @@ const Appointment=({time, interview, interviewers, bookInterview, id, cancelInte
       }     
         
         return (
-            <article className="appointment">
+            <article className="appointment" data-testid="appointment">
 
         <Header time={time}/>
 
