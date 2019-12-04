@@ -7,14 +7,7 @@ import reducer, {
   SET_INTERVIEW
 } from "reducers/application";
 
-export default function useApplicationData() {
-
-  // const [state, setState] = useState({
-  //   day: "Monday",
-  //   days: [],
-  //   appointments: {},
-  //   interviewers:{}
-  // });
+export default function useApplicationData() {  
 
   const SET_DAY = "SET_DAY";
   const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
@@ -57,10 +50,8 @@ export default function useApplicationData() {
     Promise.all([
       Promise.resolve(
         axios.get('/api/days')
-      .then(res=>{
-        //console.log('DAYS ', res.data);        
-        return res.data
-        //setDays(res.data);
+      .then(res=>{                
+        return res.data;        
       })
       ),
       Promise.resolve(
@@ -75,13 +66,11 @@ export default function useApplicationData() {
           return res.data        
       })
       )          
-    ]).then(all=>{
-      //setState(prev => ({ days: all[0], appointments: all[1], interviewers: all[2] }));  
+    ]).then(all=>{        
       dispatch({type: SET_APPLICATION_DATA, days: all[0], appointments: all[1], interviewers: all[2] })         
     })
    }, [])
-
-  // const setDay = day => setState({...state, day});
+  
   const setDay = day => dispatch({type: SET_DAY, day});
 
    //finds a day by appointment id
@@ -127,11 +116,7 @@ export default function useApplicationData() {
     const days = spotDecrease(daySpot)
 
     return axios.put(`/api/appointments/${id}`, {interview})
-        .then(res=>{
-        //   setState({
-        //   ...state,
-        //   appointments
-        // })
+        .then(res=> {        
         dispatch({type: SET_INTERVIEW, appointments});        
         dispatch({type: SET_SPOT, days: days});
       })        
@@ -166,16 +151,11 @@ export default function useApplicationData() {
     const days = spotIncrease(daySpot)
    
     return axios.delete(`/api/appointments/${id}`)
-        .then(res=>{
-        //   setState(state => ({
-        //   ...state,
-        //   appointments
-        // }))
+        .then(res=>{        
           dispatch({type: SET_INTERVIEW, appointments});
           dispatch({type: SET_SPOT, days: days});
         })
     }
-
   
   return { state, setDay, bookInterview, cancelInterview };
 }

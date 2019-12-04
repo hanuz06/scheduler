@@ -56,6 +56,10 @@ export function getInterviewersByDay(state, day) {
     return interviewersForDay;
   }
 
+  if(day === null){
+    return null;
+  }
+
   for (const i in state.interviewers){
 
     interviewersList.forEach(app=>{        
@@ -63,7 +67,6 @@ export function getInterviewersByDay(state, day) {
       interviewersForDay.push(state.interviewers[i])
     }
   })
-  }  
-  //console.log('888888888888888 ', interviewersForDay)
+  }    
   return interviewersForDay;
 }

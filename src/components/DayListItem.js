@@ -19,5 +19,3 @@ export default function DayListItem(props) {
     </li>
   );
 }
-
-//expect(getByText(day, '1 spot remaining').toBeInTheDocument();

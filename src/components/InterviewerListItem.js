@@ -9,8 +9,7 @@ export default function InterviewerListItem(props) {
   {
     'interviewers__item--selected': props.selected,
     'interviewers__item-image': props.avatar,
-    'interviewers__item--selected interviewers__item-image': props.selected && props.avatar
-      
+    'interviewers__item--selected interviewers__item-image': props.selected && props.avatar     
   })
   
   return (

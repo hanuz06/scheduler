@@ -21,7 +21,6 @@ const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
 
-
 const Appointment=({time, interview, interviewers, bookInterview, id, cancelInterview })=>{
     
     const { mode, transition, back } = useVisualMode(
@@ -48,47 +47,48 @@ const Appointment=({time, interview, interviewers, bookInterview, id, cancelInte
       }     
         
         return (
-            <article className="appointment" data-testid="appointment">
 
-        <Header time={time}/>
+          <article className="appointment" data-testid="appointment">
 
-        {mode === SHOW && (
-            <Show
-                student={interview.student}
-                interviewer={interview['interviewer']}              
-                onDelete={()=>transition(CONFIRM)} 
-                onEdit={()=>transition(EDIT)} 
-                               
-            />)} 
+            <Header time={time}/>
+
+            {mode === SHOW && (
+                <Show
+                    student={interview.student}
+                    interviewer={interview['interviewer']}              
+                    onDelete={()=>transition(CONFIRM)} 
+                    onEdit={()=>transition(EDIT)} 
+                                  
+                />)} 
+                
+            {mode === EMPTY && <Empty onAdd={()=>transition(CREATE)} />}
             
-        {mode === EMPTY && <Empty onAdd={()=>transition(CREATE)} />}
-        
-        {mode === SAVING && <Status message={'SAVING'} />}
+            {mode === SAVING && <Status message={'SAVING'} />}
 
-        {mode === DELETING && <Status message={'DELETING'} />}
+            {mode === DELETING && <Status message={'DELETING'} />}
 
-        {mode === ERROR_DELETE && <Error message={'Could not delete appointment'} onClose={()=>transition(SHOW)} />}
+            {mode === ERROR_DELETE && <Error message={'Could not delete appointment'} onClose={()=>transition(SHOW)} />}
 
-        {mode === ERROR_SAVE && <Error message={'Could not save appointment'} onClose={()=>back()} />}
+            {mode === ERROR_SAVE && <Error message={'Could not save appointment'} onClose={()=>back()} />}
 
-        {mode === CONFIRM && <Confirm message={'Please Confirm'} onCancel={()=>back()} onConfirm={deleteItem} />}
-        
-        {mode === CREATE && 
-        <Form 
-        interviewers={interviewers}         
-        onCancel={()=>back()}
-        onSave={save} />}
+            {mode === CONFIRM && <Confirm message={'Please Confirm'} onCancel={()=>back()} onConfirm={deleteItem} />}
+            
+            {mode === CREATE && 
+            <Form 
+            interviewers={interviewers}         
+            onCancel={()=>back()}
+            onSave={save} />}
 
-        {mode === EDIT && 
-        <Form 
-        interviewers={interviewers}
-        interviewer={interview['interviewer']["id"]}
-        name={interview.student}
+            {mode === EDIT && 
+            <Form 
+            interviewers={interviewers}
+            interviewer={interview['interviewer']["id"]}
+            name={interview.student}
 
-        onCancel={()=>back()}
-        onSave={save} />}
+            onCancel={()=>back()}
+            onSave={save} />}
 
-       </article>
+         </article>
     );
 };
 
