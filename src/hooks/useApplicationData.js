@@ -127,14 +127,14 @@ export default function useApplicationData() {
     const days = spotDecrease(daySpot)
 
     return axios.put(`/api/appointments/${id}`, {interview})
-        .then(res=>
+        .then(res=>{
         //   setState({
         //   ...state,
         //   appointments
         // })
-        dispatch({type: SET_INTERVIEW, appointments}),
-        dispatch({type: SET_SPOT, days: days})
-        )        
+        dispatch({type: SET_INTERVIEW, appointments});        
+        dispatch({type: SET_SPOT, days: days});
+      })        
   } 
 
   function cancelInterview(id){    
@@ -166,14 +166,14 @@ export default function useApplicationData() {
     const days = spotIncrease(daySpot)
    
     return axios.delete(`/api/appointments/${id}`)
-        .then(res=>
+        .then(res=>{
         //   setState(state => ({
         //   ...state,
         //   appointments
         // }))
-          dispatch({type: SET_INTERVIEW, appointments}),
-          dispatch({type: SET_SPOT, days: days})
-        )
+          dispatch({type: SET_INTERVIEW, appointments});
+          dispatch({type: SET_SPOT, days: days});
+        })
     }
 
   

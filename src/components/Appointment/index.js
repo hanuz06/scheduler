@@ -67,11 +67,11 @@ const Appointment=({time, interview, interviewers, bookInterview, id, cancelInte
 
         {mode === DELETING && <Status message={'DELETING'} />}
 
-        {mode === ERROR_DELETE && <Error message={'Could not delete appointment'} onClose={back} />}
+        {mode === ERROR_DELETE && <Error message={'Could not delete appointment'} onClose={()=>transition(SHOW)} />}
 
-        {mode === ERROR_SAVE && <Error message={'Could not save appointment'} onClose={back} />}
+        {mode === ERROR_SAVE && <Error message={'Could not save appointment'} onClose={()=>back()} />}
 
-        {mode === CONFIRM && <Confirm message={'Please Confirm'} onCancel={e=>back()} onConfirm={deleteItem} />}
+        {mode === CONFIRM && <Confirm message={'Please Confirm'} onCancel={()=>back()} onConfirm={deleteItem} />}
         
         {mode === CREATE && 
         <Form 
