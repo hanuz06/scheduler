@@ -1,6 +1,6 @@
 # Interview Scheduler
 
-This app was made by Andrey Li.
+This app was built as an assignment according to LHL Full Stack Web Development Course
 
 ## Short Description
 

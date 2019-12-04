@@ -6,6 +6,7 @@ import reducer, {
   SET_APPLICATION_DATA,
   SET_INTERVIEW
 } from "reducers/application";
+import { statements } from '@babel/template';
 
 export default function useApplicationData() {  
 
@@ -86,6 +87,25 @@ export default function useApplicationData() {
     return dayByAppointmenID;
   }
 
+  function editAppointment(id, interview) {     
+    
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };      
+
+    return axios.put(`/api/appointments/${id}`, {interview})
+        .then(res=> {        
+        dispatch({type: SET_INTERVIEW, appointments});        
+        dispatch({type: SET_SPOT, days: state.days});
+      })        
+  }
+
   function bookInterview(id, interview) {     
     
     const appointment = {
@@ -157,5 +177,5 @@ export default function useApplicationData() {
         })
     }
   
-  return { state, setDay, bookInterview, cancelInterview };
+  return { state, setDay, bookInterview, cancelInterview ,editAppointment};
 }

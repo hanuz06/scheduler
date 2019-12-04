@@ -21,7 +21,7 @@ const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
 
-const Appointment=({time, interview, interviewers, bookInterview, id, cancelInterview })=>{
+const Appointment=({time, interview, interviewers, bookInterview, id, cancelInterview, editAppointment })=>{
     
     const { mode, transition, back } = useVisualMode(
         interview ? SHOW : EMPTY
@@ -34,6 +34,17 @@ const Appointment=({time, interview, interviewers, bookInterview, id, cancelInte
         };
         transition(SAVING)
         bookInterview(id, interview)                
+        .then(res =>transition(SHOW))
+        .catch(error => transition(ERROR_SAVE, true));
+      }
+
+      function edit(name, interviewer) {
+        const interview = {
+          student: name,
+          interviewer
+        };
+        transition(SAVING)
+        editAppointment(id, interview)                
         .then(res =>transition(SHOW))
         .catch(error => transition(ERROR_SAVE, true));
       }
@@ -86,7 +97,7 @@ const Appointment=({time, interview, interviewers, bookInterview, id, cancelInte
             name={interview.student}
 
             onCancel={()=>back()}
-            onSave={save} />}
+            onSave={edit} />}
 
          </article>
     );
