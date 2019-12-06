@@ -2,7 +2,7 @@
 
 This app was built as an assignment according to LHL Full Stack Web Development Course. 
 
-To see production version on Netlify please go to: [Scheduler](https://jolly-poincare-537e66.netlify.com)
+To see production version on Netlify please go 👉 [Scheduler](https://jolly-poincare-537e66.netlify.com)
 
 ## Short Description
 
