@@ -32,7 +32,7 @@ deploy:
     - checkout
     - run:
         name: Push Master to Production
-        command: |
+        command: 
           git push https://github.com/hanuz06/scheduler.git master:production
 
 workflows:
