@@ -30,7 +30,7 @@ npm test
 npm run storybook
 ```
 
-## To reset DB
+## Resetting DB
 
 ```sh
 http://localhost:8001/api/debug/reset
