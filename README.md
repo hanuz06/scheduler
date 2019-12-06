@@ -46,13 +46,17 @@ When Netlify detects changes in Github repository production branch it automatic
 
 !["Screenshot of production schema"](https://github.com/hanuz06/scheduler/blob/master/public/images/scheduler-production-schema.png?raw=true)
 
+## Screenshot with CircleCI test report
+
+!["Screenshot of CircleCI test report"](https://github.com/hanuz06/scheduler/blob/master/public/images/scheduler-circle.png?raw=true)
+
 ## Screenshot with the set appointment and a form for making the appointments
 
 !["Screenshot of front page"](https://github.com/hanuz06/scheduler/blob/master/public/images/scheduler-front-page.png?raw=true)
 
 ## Screenshot with warning messages
 
-!["Screenshot of the page for mobiles"](https://github.com/hanuz06/scheduler/blob/master/public/images/Scheduler-3.png?raw=true)
+!["Screenshot of warning messages"](https://github.com/hanuz06/scheduler/blob/master/public/images/scheduler-warning.png?raw=true)
 
 ## Dependencies
 
