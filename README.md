@@ -34,7 +34,7 @@ npm run storybook
 http://localhost:8001/api/debug/reset
 ```
 
-## Screenshot with the set appointment and a form for making the appointment
+## Screenshot with the set appointment and a form for making the appointments
 
 !["Screenshot of front page"](https://github.com/hanuz06/scheduler/blob/master/public/images/scheduler-1.png?raw=true)
 
