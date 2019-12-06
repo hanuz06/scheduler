@@ -46,6 +46,8 @@ http://localhost:8001/api/debug/reset
 
 !["Screenshot of the page for mobiles"](https://github.com/hanuz06/scheduler/blob/master/public/images/Scheduler-3.png?raw=true)
 
+!["Deployed to netlify"](https://jolly-poincare-537e66.netlify.com/)
+
 ## Dependencies
 
 - Node 10.x or above
