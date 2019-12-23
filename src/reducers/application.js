@@ -3,7 +3,8 @@ const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 const SET_INTERVIEW = "SET_INTERVIEW";
 const SET_SPOT = "SET_SPOT";
 
-  export default function reducer(state, action) {
+export default function reducer(state, action) {
+
     switch (action.type) {
       case SET_DAY:
         return { ...state, 
