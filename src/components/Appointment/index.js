@@ -23,6 +23,7 @@ const ERROR_DELETE = "ERROR_DELETE";
 
 const Appointment=({time, interview, interviewers, bookInterview, id, cancelInterview, editAppointment })=>{
     
+    // Importing 3 functions
     const { mode, transition, back } = useVisualMode(
         interview ? SHOW : EMPTY
       );
